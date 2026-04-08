@@ -1,15 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-const dbConnection = require('./config/db');
-const taskRoutes = require('./routes/taskRoutes');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // Esto permite que el Front se conecte
+app.use(cors());
 
-dbConnection();
-app.use('/tasks', taskRoutes);
+// Conexión a MongoDB
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('✅ Conectado a MongoDB Atlas'))
+    .catch(err => console.error('❌ Error de conexión:', err));
+
+// Rutas
+app.use('/tasks', require('./routes/taskRoutes'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server en ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Servidor en puerto ${PORT}`));
