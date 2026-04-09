@@ -11,9 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.3.2"
-  }
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "mongoose": "^8.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuvaakSah/backBreak.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RuvaakSah/backBreak/issues"
+  },
+  "homepage": "https://github.com/RuvaakSah/backBreak#readme"
 }
