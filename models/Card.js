@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+
 const CardSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    game: { type: String, required: true }, // Ejemplo: Pokémon, Magic, Yu-Gi-Oh
+    name: { type: String, required: [true, 'El nombre es obligatorio'] },
+    game: { type: String, required: true },
     price: { type: Number, required: true },
-    image: { type: String }, // URL de la imagen de la carta
-    stock: { type: Number, default: 1 }
-});
+    image: { type: String, default: 'https://via.placeholder.com/150' },
+    description: { type: String }
+}, { timestamps: true });
+
 module.exports = mongoose.model('Card', CardSchema);
